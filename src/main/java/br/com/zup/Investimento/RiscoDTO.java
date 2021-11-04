@@ -1,4 +1,7 @@
 package br.com.zup.Investimento;
 
-public class RiscoDTO {
+public enum RiscoDTO {
+    ALTO, MEDIO, BAIXO;
+
+
 }
