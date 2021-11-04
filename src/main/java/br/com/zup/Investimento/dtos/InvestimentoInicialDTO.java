@@ -1,11 +1,19 @@
-package br.com.zup.Investimento;
+package br.com.zup.Investimento.dtos;
+
+import org.hibernate.validator.constraints.br.CPF;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 
 public class InvestimentoInicialDTO {
+    @Email(message = "Email inválido, por favor digite novamente.")
     private String email;
     private String nome;
+    @CPF(message = "Email inválido, por favor digite novamente.")
     private String cpf;
     private double valorPrevisto;
-    private int periodoDeAplicacao = 12;
+    @Min(2)
+    private int periodoDeAplicacao;
     private RiscoDTO riscoDTO;
 
     public InvestimentoInicialDTO() {
