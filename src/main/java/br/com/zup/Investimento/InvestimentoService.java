@@ -10,5 +10,9 @@ import java.util.List;
 public class InvestimentoService {
     private List<InvestimentoInicialDTO>investimentoInicialDTOS = new ArrayList<>();
 
+    public void adicionarInvestimentoDTO(InvestimentoInicialDTO investimentoInicialDTO){
+        investimentoInicialDTOS.add(investimentoInicialDTO);
+    }
+
 
 }
