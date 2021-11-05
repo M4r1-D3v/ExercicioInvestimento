@@ -17,13 +17,13 @@ public class InvestimentoController {
 
     @PutMapping //requisição de simulação de investimento
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public RespostaInvestimentoDTO inputSimulacaoInvestimento (@RequestBody @Valid InvestimentoDTO investimentoInicialDTO){ //adicionar a anotação para reconhecimento das validações
-         investimentoService.adicionarInvestimentoDTO(investimentoInicialDTO);                            // de forma que ao preencher a simulação no corpo da requição, já sejam realizadas as validações
-           return investimentoService.calculoDaRequisicao(investimentoInicialDTO);                                                                                             // necessárias, o que impede que o programa rode desnecessariamente e que tb a segurança da aplicação seja mantida.
+    public RespostaInvestimentoDTO inputSimulacaoInvestimento(@RequestBody @Valid InvestimentoDTO investimentoInicialDTO) { //adicionar a anotação para reconhecimento das validações
+        investimentoService.adicionarInvestimentoDTO(investimentoInicialDTO);                            // de forma que ao preencher a simulação no corpo da requição, já sejam realizadas as validações
+        return investimentoService.calculoDaRequisicao(investimentoInicialDTO);                                                                                             // necessárias, o que impede que o programa rode desnecessariamente e que tb a segurança da aplicação seja mantida.
     }
 
     @GetMapping //requisição de exibição das simulações realizadas
-    public List<InvestimentoDTO>exibirRequisicoesRealizadas(){
+    public List<InvestimentoDTO> exibirRequisicoesRealizadas() {
         return investimentoService.exibirSimulacoesRealizadas();
     }
 

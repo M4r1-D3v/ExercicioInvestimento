@@ -10,28 +10,28 @@ import java.util.List;
 
 @Service
 public class InvestimentoService {
-    private List<InvestimentoDTO>investimentoInicialDTOS = new ArrayList<>();
+    private List<InvestimentoDTO> investimentoInicialDTOS = new ArrayList<>();
 
-    public void adicionarInvestimentoDTO(InvestimentoDTO investimentoInicialDTO){
+    public void adicionarInvestimentoDTO(InvestimentoDTO investimentoInicialDTO) {
         investimentoInicialDTOS.add(investimentoInicialDTO);
     }
 
-    public List<InvestimentoDTO>exibirSimulacoesRealizadas(){
+    public List<InvestimentoDTO> exibirSimulacoesRealizadas() {
         return investimentoInicialDTOS;
     }
 
-    public RespostaInvestimentoDTO calculoDaRequisicao(InvestimentoDTO investimentoDTO){
+    public RespostaInvestimentoDTO calculoDaRequisicao(InvestimentoDTO investimentoDTO) {
 
         double valorTotal = 0;
-        if (investimentoDTO.getRiscoDTO().equals(RiscoDTO.ALTO)){
+        if (investimentoDTO.getRiscoDTO().equals(RiscoDTO.ALTO)) {
             double investimentoTaxa = investimentoDTO.getValorPrevisto() * RiscoDTO.ALTO.getTaxaRetorno();
-             valorTotal = Math.pow(investimentoTaxa,investimentoDTO.getPeriodoDeAplicacao());
-        }else if (investimentoDTO.getRiscoDTO().equals(RiscoDTO.MEDIO)){
+            valorTotal = Math.pow(investimentoTaxa, investimentoDTO.getPeriodoDeAplicacao()) + investimentoDTO.getValorPrevisto();
+        } else if (investimentoDTO.getRiscoDTO().equals(RiscoDTO.MEDIO)) {
             double investimentoTaxa = investimentoDTO.getValorPrevisto() * RiscoDTO.MEDIO.getTaxaRetorno();
-             valorTotal = Math.pow(investimentoTaxa,investimentoDTO.getPeriodoDeAplicacao());
-        }else if (investimentoDTO.getRiscoDTO().equals(RiscoDTO.BAIXO)){
+            valorTotal = Math.pow(investimentoTaxa, investimentoDTO.getPeriodoDeAplicacao()) + investimentoDTO.getValorPrevisto();
+        } else if (investimentoDTO.getRiscoDTO().equals(RiscoDTO.BAIXO)) {
             double investimentoTaxa = investimentoDTO.getValorPrevisto() * RiscoDTO.BAIXO.getTaxaRetorno();
-            valorTotal = Math.pow(investimentoTaxa,investimentoDTO.getPeriodoDeAplicacao());
+            valorTotal = Math.pow(investimentoTaxa, investimentoDTO.getPeriodoDeAplicacao()) + investimentoDTO.getValorPrevisto();
         }
         RespostaInvestimentoDTO resposta = new RespostaInvestimentoDTO();
         resposta.setValorInvestido(investimentoDTO.getValorPrevisto());
