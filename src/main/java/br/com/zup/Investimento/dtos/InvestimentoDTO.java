@@ -5,7 +5,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 
-public class InvestimentoInicialDTO {
+public class InvestimentoDTO {
     @Email(message = "Email inválido, por favor digite novamente.")
     private String email;
     private String nome;
@@ -16,10 +16,10 @@ public class InvestimentoInicialDTO {
     private int periodoDeAplicacao;
     private RiscoDTO riscoDTO;
 
-    public InvestimentoInicialDTO() {
+    public InvestimentoDTO() {
     }
 
-    public InvestimentoInicialDTO(String email, String nome, String cpf, double valorPrevisto, int periodoDeAplicacao, RiscoDTO riscoDTO) {
+    public InvestimentoDTO(String email, String nome, String cpf, double valorPrevisto, int periodoDeAplicacao, RiscoDTO riscoDTO) {
         this.email = email;
         this.nome = nome;
         this.cpf = cpf;
