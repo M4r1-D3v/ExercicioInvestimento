@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/investimentos")
@@ -17,6 +18,11 @@ public class InvestimentoController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void inputSimulacaoInvestimento (@RequestBody @Valid InvestimentoDTO investimentoInicialDTO){
         investimentoService.adicionarInvestimentoDTO(investimentoInicialDTO);
+    }
+
+    @GetMapping
+    public List<InvestimentoDTO>exibirRequisicoesRealizadas(){
+        return investimentoService.exibirSimulacoesRealizadas();
     }
 
 }
