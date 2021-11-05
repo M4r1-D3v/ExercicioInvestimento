@@ -9,7 +9,7 @@ public class InvestimentoDTO {
     @Email(message = "Email inválido, por favor digite novamente.")
     private String email;
     private String nome;
-    @CPF(message = "Email inválido, por favor digite novamente.")
+    @CPF(message = "Cpf inválido, por favor digite novamente.")
     private String cpf;
     private double valorPrevisto;
     @Min(2)
